@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import WariersList from '../components/WariersList';
+import Scroll from '../components/Scroll';
 
 class App extends Component {
   constructor () {
@@ -56,9 +57,9 @@ class App extends Component {
             </h1>
           </header>
         </div>
-        <div>
+        <Scroll>
           <WariersList wariers={wariers}/>
-        </div>
+        </Scroll>
         
       </div>
  

@@ -2,17 +2,11 @@ import React from 'react';
 
 const Warier = ({name, birth_year, gender}) => {
     return (
-        <div className = 'bg-light-green dib br3 pa3 ma2 grow bw2 shadow-5'>
-            <div>
-                {name}, 
-            </div>
-            <div>    
-                {birth_year}, 
-            </div>
-            <div>    
-                {gender}
-            </div>
-        </div> 
+                <tr>
+                    <td class="pv3 pr3 bb b--black-20">{name}</td>
+                    <td class="pv3 pr3 bb b--black-20">{birth_year}</td>
+                    <td class="pv3 pr3 bb b--black-20">{gender}</td>
+                </tr>
     );
 }
 
