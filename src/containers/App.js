@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import WariersList from '../components/WariersList';
 import Scroll from '../components/Scroll';
+import SerchBox from '../components/SerchBox';
 
 class App extends Component {
   constructor () {
@@ -13,8 +14,8 @@ class App extends Component {
           birth_date: 1985,
           gender: "Male"
         }
-      ]
-      // srechfield: ''
+      ],
+      serchfield: ''
     }
   }
 
@@ -26,18 +27,18 @@ class App extends Component {
   }
 
 
-  // onSerchChange = (event) => {
-  //   this.state({srechfield: event.target.value})
-  // }
+  onSerchChange = (event) => {
+    this.setState({serchfield: event.target.value});
+  }
 
  
 
 
   render() {
-    const {wariers} = this.state;
-    // const filterdWariers = wariers.filter(warier => {
-    //   return warier.name.toLowerCase().includs(srechfield.toLowerCase());
-    // });
+    const {wariers, serchfield} = this.state;
+    const filterdWariers = wariers.filter(warier => {
+      return warier.name.toLowerCase().includes(serchfield.toLowerCase());
+    });
     return (
       !wariers.length ? 
       <h1>... Loading ...</h1>
@@ -57,8 +58,11 @@ class App extends Component {
             </h1>
           </header>
         </div>
+        <div  className='flex items-center' >
+          <SerchBox serchChange={this.onSerchChange} />
+        </div>
         <Scroll>
-          <WariersList wariers={wariers}/>
+          <WariersList wariers={filterdWariers}/>
         </Scroll>
         
       </div>
