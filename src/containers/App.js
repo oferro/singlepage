@@ -3,6 +3,8 @@ import './App.css';
 import WariersList from '../components/WariersList';
 import Scroll from '../components/Scroll';
 import SerchBox from '../components/SerchBox';
+import 'tachyons';
+import BasicTable from '../components/BasicTable';
 
 class App extends Component {
   constructor () {
@@ -11,7 +13,7 @@ class App extends Component {
       wariers: [
         {
           name: 'SkyWalker',
-          birth_date: 1985,
+          birth_year: 1985,
           gender: "Male"
         }
       ],
@@ -31,7 +33,8 @@ class App extends Component {
     this.setState({serchfield: event.target.value});
   }
 
- 
+  
+
 
 
   render() {
@@ -58,12 +61,13 @@ class App extends Component {
             </h1>
           </header>
         </div>
-        <div  className='flex items-center' >
+        <div  className='flex justify-center' >
           <SerchBox serchChange={this.onSerchChange} />
         </div>
         <Scroll>
           <WariersList wariers={filterdWariers}/>
         </Scroll>
+          {/* <BasicTable data={filterdWariers} /> */}
         
       </div>
  
